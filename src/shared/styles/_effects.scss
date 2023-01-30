@@ -1,0 +1,11 @@
+$effects: (
+    "bg-blur": blur(3.5px),
+    "shadow": 0px 0px 25px rgba(0, 0, 0, 0.5)
+);
+
+// Create custom properties from effects
+:root {
+    @each $effect, $val in $effects {
+        --#{$effect}: #{$val};
+    }
+}
