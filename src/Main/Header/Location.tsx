@@ -1,8 +1,10 @@
-import React from 'react'
+import Button from "../../shared/components/Button"
 
 function Location() {
   return (
-    <div>Location</div>
+    <div>
+      <Button icon="ic:sharp-location-on">Mombasa, Kenya</Button>
+    </div>
   )
 }
 

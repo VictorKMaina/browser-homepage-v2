@@ -1,0 +1,71 @@
+.center {
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.clock {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: max-content;
+
+  .time {
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--white-1);
+    line-height: 0.85;
+  }
+  .meridiem {
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--primary);
+  }
+}
+
+.search-bar-wrapper {
+    width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.63rem 1rem;
+  background-color: var(--white-4);
+  border-radius: 4rem;
+  cursor: pointer;
+
+  input {
+    order: 2;
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white-1);
+    font-family: inherit;
+    font-size: inherit;
+    cursor: text;
+  }
+
+  iconify-icon {
+    color: var(--white-1);
+    font-size: 1.5rem;
+    transition: 200ms;
+  }
+
+  & :last-child {
+    order: 3;
+    color: var(--primary);
+  }
+
+  input:focus ~ iconify-icon {
+    color: var(--primary);
+  }
+}

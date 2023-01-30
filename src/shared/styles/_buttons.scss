@@ -1,0 +1,38 @@
+.btn {
+  @keyframes iconBounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-.25rem);
+    }
+  }
+
+  background: none;
+  border: none;
+  color: var(--white-1);
+  font-family: inherit;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 200ms;
+
+  &:hover {
+    color: var(--primary);
+
+    iconify-icon {
+      animation-name: iconBounce;
+      animation-duration: 500ms;
+      animation-timing-function: cubic-bezier(.36,.15,.06,.96);
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  iconify-icon {
+    color: var(--primary);
+  }
+}

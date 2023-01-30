@@ -1,5 +1,5 @@
-import ImageForm from "./ImageForm/ImageForm"
-import SavedImages from "./SavedImages/SavedImages"
+import ImageForm from "./ImageForm"
+import SavedImages from "./SavedImages"
 
 export default function Aside(){
     return <aside>

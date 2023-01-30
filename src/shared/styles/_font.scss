@@ -4,6 +4,7 @@
 body {
     font-family: 'Work Sans', sans-serif;
     font-weight: 500;
+    color: var(--white-2);
 }
 
 // Generate font color classes
@@ -14,5 +15,5 @@ body {
 }
 
 p, .body {
-    color: var(--white-2);
+    margin: 0;
 }

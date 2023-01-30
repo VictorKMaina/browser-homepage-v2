@@ -1,7 +1,16 @@
-import React from "react";
+import { PropsWithChildren } from "react";
+import { Icon } from "@iconify-icon/react";
 
-function Button() {
-  return <button>Button</button>;
+type ButtonProps = { icon: string, type?: "button" | "submit" | "reset" | undefined } & PropsWithChildren;
+
+
+function Button({ children, icon, type }: ButtonProps) {
+  return (
+    <button type={type || 'button'} className="btn">
+      <Icon icon={icon} />
+      {children}
+    </button>
+  );
 }
 
 export default Button;
