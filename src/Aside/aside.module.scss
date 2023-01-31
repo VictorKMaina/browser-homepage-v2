@@ -1,31 +1,19 @@
 @use "./image-form";
 @use "./saved-images";
+@use "@styles/mq" as *;
 
-@mixin asideMixin($x) {
+.aside {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
-  width: 350px;
-  transform: translateX($x);
+  left: -$mobile-l;
   transition: 500ms;
+  padding: 2rem;
+  overflow: auto;
+  width: 100%;
 
-  .aside-inner {
-    position: absolute;
-    top: 2rem;
-    bottom: 2rem;
-    right: .75rem;
-    padding-right: 1.25rem;
-    left: 2rem;
-    overflow-y: scroll;
+  @include min-width(mobile-l){
+    max-width: $mobile-l;
   }
-}
-
-.aside {
-  @include asideMixin(0);
-}
-
-.aside-hidden {
-  @include asideMixin(-100%);
 }

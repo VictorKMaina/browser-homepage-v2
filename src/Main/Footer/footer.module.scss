@@ -14,4 +14,8 @@
     justify-items: flex-end;
     column-gap: 2rem;
   }
+
+  // @include min-width(laptop) {
+  //   min-width: $laptop;
+  // }
 }
