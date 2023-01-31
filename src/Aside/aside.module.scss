@@ -1,0 +1,24 @@
+@mixin asideMixin($x) {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 350px;
+  padding: 2rem;
+  transform: translateX($x);
+  transition: 500ms;
+}
+
+.aside {
+    @include asideMixin(0);
+}
+
+.aside-hidden {
+    @include asideMixin(-100%);
+}
+
+.image-status {
+  display: flex;
+  gap: 1rem;
+}

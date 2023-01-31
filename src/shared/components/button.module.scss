@@ -1,13 +1,12 @@
-.btn {
-  @keyframes iconBounce {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-.25rem);
-    }
+@keyframes iconBounce {
+  0% {
+    transform: translateY(0);
   }
-
+  100% {
+    transform: translateY(-0.25rem);
+  }
+}
+.btn {
   background: none;
   border: none;
   color: var(--white-1);
@@ -26,7 +25,7 @@
     iconify-icon {
       animation-name: iconBounce;
       animation-duration: 500ms;
-      animation-timing-function: cubic-bezier(.36,.15,.06,.96);
+      animation-timing-function: cubic-bezier(0.36, 0.15, 0.06, 0.96);
       animation-direction: alternate;
       animation-iteration-count: infinite;
     }

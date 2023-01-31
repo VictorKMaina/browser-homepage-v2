@@ -6,7 +6,7 @@ import styles from "./main.module.scss";
 
 export default function Main() {
   return (
-    <div className={styles['wrapper']}>
+    <div className={styles['wrapper-moved']}>
       <Header />
       <Center />
       <Arrows />

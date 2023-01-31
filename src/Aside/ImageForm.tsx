@@ -1,3 +1,7 @@
+import ImageStatus from "./ImageStatus";
+
 export default function ImageForm(){
-    return <form></form>
+    return <form>
+        <ImageStatus />
+    </form>
 }

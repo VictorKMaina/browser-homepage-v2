@@ -17,3 +17,8 @@ body {
 p, .body {
     margin: 0;
 }
+
+::selection {
+    background-color: var(--primary);
+    color: var(--black-1);
+}

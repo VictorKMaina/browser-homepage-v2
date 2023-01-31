@@ -39,6 +39,8 @@
   width: 100%;
   padding: 0.63rem 1rem;
   background-color: var(--white-4);
+  -webkit-backdrop-filter: var(--bg-blur);
+  backdrop-filter: var(--bg-blur);
   border-radius: 4rem;
   cursor: pointer;
 

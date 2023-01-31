@@ -1,13 +1,14 @@
 @use './colors';
 @use './font';
 @use './effects';
-@use './buttons';
+@use './inputs';
 
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     text-shadow: var(--shadow);
+    overflow-x: hidden;
 }
 
 * {

@@ -1,3 +1,4 @@
+import styles from "./button.module.scss";
 import { PropsWithChildren } from "react";
 import { Icon } from "@iconify-icon/react";
 
@@ -6,7 +7,7 @@ type ButtonProps = { icon: string, type?: "button" | "submit" | "reset" | undefi
 
 function Button({ children, icon, type }: ButtonProps) {
   return (
-    <button type={type || 'button'} className="btn">
+    <button type={type || 'button'} className={styles["btn"]}>
       <Icon icon={icon} />
       {children}
     </button>

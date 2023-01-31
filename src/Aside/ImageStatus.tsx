@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import Thumbnail from "../shared/components/Thumbnail";
+import styles from "./aside.module.scss";
 
-function ImageStatus() {
+type ImageStatusProps = { message?: string };
+
+function ImageStatus({ message }: ImageStatusProps) {
   return (
-    <div>ImageStatus</div>
-  )
+    <div className={styles["image-status"]}>
+      <Thumbnail />
+      <p>{message || "Waiting for image..."}</p>
+    </div>
+  );
 }
 
-export default ImageStatus
+export default ImageStatus;

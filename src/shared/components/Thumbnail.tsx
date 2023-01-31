@@ -1,9 +1,9 @@
-import React from 'react'
+import styles from "./thumbnail.module.scss";
 
-function Thumbnail() {
+export default function Thumbnail() {
   return (
-    <div>Thumbnail</div>
-  )
+    <div className={styles["thumbnail-wrapper"]}>
+      <div className={styles["thumbnail"]}></div>
+    </div>
+  );
 }
-
-export default Thumbnail
