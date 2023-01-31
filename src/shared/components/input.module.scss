@@ -45,7 +45,8 @@
     margin-top: 2px;
   }
 
-  input:focus ~ iconify-icon {
+  input:focus ~ iconify-icon,
+  textarea:focus ~ iconify-icon {
     color: var(--primary);
   }
 }

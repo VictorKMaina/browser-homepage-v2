@@ -23,8 +23,8 @@ export default function ImageForm() {
         textearea={true}
       />
       <footer>
-        <Button>Cancel</Button>
-        <Button icon='material-symbols:save' style={{ color: "var(--primary)" }}>Save image</Button>
+        <Button type="reset">Cancel</Button>
+        <Button type="submit" icon='material-symbols:save' style={{ color: "var(--primary)" }}>Save image</Button>
       </footer>
     </form>
   );

@@ -1,0 +1,12 @@
+section.saved-images {
+    h2 {
+        font-weight: normal;
+        color: var(--white-1);
+    }
+
+    .thumbnails-wrapper {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+    }
+}
