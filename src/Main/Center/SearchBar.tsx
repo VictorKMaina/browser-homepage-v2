@@ -2,6 +2,7 @@ import styles from "./center.module.scss";
 import { Icon } from "@iconify-icon/react";
 import { FormEvent } from "react";
 import Button from "../../shared/components/Button";
+import Input from "../../shared/components/Input";
 
 function SearchBar() {
   function handleSubmit(e: FormEvent) {
@@ -13,18 +14,24 @@ function SearchBar() {
       autoComplete="off"
       className={styles["search-bar-wrapper"]}
     >
-      <label htmlFor="search" className={styles["search-bar"]}>
-        <input
-          id="search"
-          name="search"
-          type="text"
-          placeholder="Search the web..."
-        />
-
-        <Icon icon="bxl:google" />
-
-        <Button type="submit" icon="material-symbols:search" />
-      </label>
+      <Input
+        id="search"
+        name="search"
+        icon="material-symbols:search"
+        placeholder="Search the web..."
+        value=""
+        button={
+          <Button
+            style={{ order: 2 }}
+            type="submit"
+            icon="material-symbols:search"
+          />
+        }
+      >
+        <div className={styles["google-icon"]}>
+          <Icon icon="bxl:google" />
+        </div>
+      </Input>
     </form>
   );
 }
