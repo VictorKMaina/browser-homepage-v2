@@ -1,14 +1,14 @@
 import styles from "./button.module.scss";
-import { PropsWithChildren } from "react";
-import { Icon } from "@iconify-icon/react";
+import { CSSProperties, PropsWithChildren } from "react";
+import { Icon, IconifyIcon } from "@iconify-icon/react";
 
-type ButtonProps = { icon: string, type?: "button" | "submit" | "reset" | undefined } & PropsWithChildren;
+type ButtonProps = { icon?: string | IconifyIcon, style?: CSSProperties, type?: "button" | "submit" | "reset" | undefined } & PropsWithChildren;
 
 
-function Button({ children, icon, type }: ButtonProps) {
+function Button({ children, icon, style, type }: ButtonProps) {
   return (
-    <button type={type || 'button'} className={styles["btn"]}>
-      <Icon icon={icon} />
+    <button type={type || 'button'} className={styles["btn"]} style={style}>
+      {icon && <Icon icon={icon} />}
       {children}
     </button>
   );

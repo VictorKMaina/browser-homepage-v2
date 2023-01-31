@@ -1,0 +1,51 @@
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.63rem 1rem;
+  background-color: var(--white-4);
+  -webkit-backdrop-filter: var(--bg-blur);
+  backdrop-filter: var(--bg-blur);
+  border-radius: 1.25rem;
+  cursor: pointer;
+
+  input,
+  textarea {
+    order: 1;
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white-1);
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    cursor: text;
+  }
+
+  textarea {
+    min-height: 7rem;
+    resize: none;
+  }
+
+  iconify-icon {
+    order: 2;
+    color: var(--white-1);
+    // font-size: 1.5rem;
+    transition: 200ms;
+    color: var(--white-2);
+  }
+  textarea ~ iconify-icon {
+    position: absolute;
+    top: 0.63rem;
+    right: 1rem;
+    margin-top: 2px;
+  }
+
+  input:focus ~ iconify-icon {
+    color: var(--primary);
+  }
+}

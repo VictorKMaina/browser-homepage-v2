@@ -7,7 +7,7 @@ type ImageStatusProps = { message?: string };
 function ImageStatus({ message }: ImageStatusProps) {
   return (
     <div className={styles["image-status"]}>
-      <Thumbnail />
+      <Thumbnail image={null}/>
       <p>{message || "Waiting for image..."}</p>
     </div>
   );
