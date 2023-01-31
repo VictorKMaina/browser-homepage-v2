@@ -5,6 +5,7 @@ import Button from "../../shared/components/Button";
 import Input from "../../shared/components/Input";
 
 function SearchBar() {
+  function handleSearchOnChange() {}
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
   }
@@ -15,6 +16,7 @@ function SearchBar() {
       className={styles["search-bar-wrapper"]}
     >
       <Input
+        onChange={handleSearchOnChange}
         id="search"
         name="search"
         icon="material-symbols:search"

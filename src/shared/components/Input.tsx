@@ -8,6 +8,7 @@ interface BaseInputProps {
   name: string;
   placeholder: string;
   value: string;
+  onChange: () => void;
 }
 
 interface InputProps extends PropsWithChildren, BaseInputProps {
@@ -21,16 +22,17 @@ export default function Input({
   id,
   name,
   placeholder,
+  value,
+  onChange,
   icon,
   button,
   textearea = false,
-  value,
 }: InputProps) {
   const inputProps = { id, name, placeholder, value };
 
   return (
     <label htmlFor={id} className={styles["input-wrapper"]}>
-      {textearea ? <TextArea {...inputProps} /> : <TextInput {...inputProps} />}
+      {textearea ? <TextArea onChange={onChange} {...inputProps} /> : <TextInput onChange={onChange} {...inputProps} />}
 
       {children}
 
@@ -39,8 +41,7 @@ export default function Input({
   );
 }
 
-function TextInput(props: BaseInputProps) {
-  const { id, name, placeholder, value } = props;
+function TextInput({ id, name, placeholder, value, onChange }: BaseInputProps) {
   return (
     <input
       id={id}
@@ -48,19 +49,19 @@ function TextInput(props: BaseInputProps) {
       type="text"
       placeholder={placeholder}
       value={value}
+      onChange={onChange}
     />
   );
 }
 
-function TextArea(props: BaseInputProps) {
-  const { id, name, placeholder, value } = props;
-
+function TextArea({ id, name, placeholder, value, onChange }: BaseInputProps) {
   return (
     <textarea
       name={name}
       id={id}
       placeholder={placeholder}
       value={value}
+      onChange={onChange}
     ></textarea>
   );
 }
