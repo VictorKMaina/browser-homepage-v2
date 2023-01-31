@@ -1,0 +1,70 @@
+$mobile-s: 320px;
+$mobile-m: 375px;
+$mobile-l: 425px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1440px;
+
+@mixin min-width($breakpoint) {
+  @if ($breakpoint == mobile-s) {
+    @media only screen and (min-width: $mobile-s) {
+      @content;
+    }
+  } @else if ($breakpoint == mobile-m) {
+    @media only screen and (min-width: $mobile-m) {
+      @content;
+    }
+  } @else if ($breakpoint == mobile-l) {
+    @media only screen and (min-width: $mobile-l) {
+      @content;
+    }
+  } @else if ($breakpoint == tablet) {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if ($breakpoint == laptop) {
+    @media only screen and (min-width: $laptop) {
+      @content;
+    }
+  } @else if ($breakpoint == desktop) {
+    @media only screen and (min-width: $desktop) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin max-width($breakpoint) {
+  @if ($breakpoint == mobile-s) {
+    @media only screen and (max-width: $mobile-s) {
+      @content;
+    }
+  } @else if ($breakpoint == mobile-m) {
+    @media only screen and (max-width: $mobile-m) {
+      @content;
+    }
+  } @else if ($breakpoint == mobile-l) {
+    @media only screen and (max-width: $mobile-l) {
+      @content;
+    }
+  } @else if ($breakpoint == tablet) {
+    @media only screen and (max-width: $tablet) {
+      @content;
+    }
+  } @else if ($breakpoint == laptop) {
+    @media only screen and (max-width: $laptop) {
+      @content;
+    }
+  } @else if ($breakpoint == desktop) {
+    @media only screen and (max-width: $desktop) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}

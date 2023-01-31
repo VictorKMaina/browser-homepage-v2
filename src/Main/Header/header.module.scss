@@ -1,8 +1,25 @@
+@use "@styles/mq" as *;
+
 .header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-content: flex-start;
+
+  .location-wrapper {
+    display: none;
+  }
+
+  @include min-width(tablet) {
+    justify-content: space-between;
+    flex-direction: row;
+
+    .location-wrapper {
+      display: block;
+    }
+  }
 }
 
 iconify-icon {

@@ -2,7 +2,7 @@ import styles from "./center.module.scss";
 import { Icon } from "@iconify-icon/react";
 import { FormEvent } from "react";
 import Button from "../../shared/components/Button";
-import Input from "../../shared/components/Input";
+import Input from "@/shared/components/Input";
 
 function SearchBar() {
   function handleSearchOnChange() {}
