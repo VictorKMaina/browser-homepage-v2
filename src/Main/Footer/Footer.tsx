@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     <footer className={styles["footer"]}>
       <Button icon="material-symbols:add">Add images</Button>
-      <DotsNav />
       <Description />
+      <DotsNav />
     </footer>
   );
 }

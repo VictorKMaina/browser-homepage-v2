@@ -1,19 +1,31 @@
+@use "@styles/mq" as *;
+
 .clock {
-    display: flex;
-    align-items: flex-end;
-    gap: 0.5rem;
-    height: max-content;
-  
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: max-content;
+
+  .time {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--white-1);
+    line-height: 0.85;
+  }
+
+  .meridiem {
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--primary);
+  }
+
+  @include min-width(tablet){
     .time {
       font-size: 6rem;
-      font-weight: 700;
-      color: var(--white-1);
-      line-height: 0.85;
     }
+
     .meridiem {
       font-size: 2.5rem;
-      line-height: 1;
-      color: var(--primary);
     }
   }
-  
+}

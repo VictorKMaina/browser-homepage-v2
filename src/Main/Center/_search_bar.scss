@@ -1,0 +1,17 @@
+.search-bar-wrapper {
+  width: 100%;
+
+  .google-icon {
+    order: 0;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1rem;
+  }
+
+  input:focus ~ .google-icon {
+    iconify-icon {
+      color: var(--primary);
+    }
+  }
+}
