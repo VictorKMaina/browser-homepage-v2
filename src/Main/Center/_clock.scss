@@ -19,7 +19,7 @@
     color: var(--primary);
   }
 
-  @include min-width(tablet){
+  @include min-width(600px){
     .time {
       font-size: 6rem;
     }

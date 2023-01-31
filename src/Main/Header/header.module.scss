@@ -13,7 +13,7 @@
     display: none;
   }
 
-  @include min-width(tablet) {
+  @include min-width(600px) {
     justify-content: space-between;
     flex-direction: row;
 
