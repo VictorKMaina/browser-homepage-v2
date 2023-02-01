@@ -1,26 +1,26 @@
 import styles from "@styles/modules/Clock.module.scss";
-import { getCurrentTime } from "@/utility/datetime";
+import CurrentTime from "@/models/DateTime/CurrentTime.class";
 import { useState, useEffect } from "react";
 
 function Clock() {
-  const [time, setTime] = useState(() => getCurrentTime());
-  const { hours, minutes, meridiem } = time;
+  const [currentTime, setCurrentTime] = useState(() => new CurrentTime())
+  const { hours, minutes, meridiem } = currentTime;
 
   useEffect(() => {
     // Update time every second
     const interval = setInterval(() => {
-      setTime(() => getCurrentTime());
+      setCurrentTime(() => new CurrentTime());
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [time]);
+  }, [currentTime]);
 
   return (
     <div className={styles["clock"]}>
       <div className={styles["time"]}>
-        {hours}:{minutes}
+        {hours.string}:{minutes.string}
       </div>
       <div className={styles["meridiem"]}>{meridiem}</div>
     </div>
