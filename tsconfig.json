@@ -21,7 +21,7 @@
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
       "@services/*": ["./src/services/*"],
-      "@models/*": ["./src/models/*"],
+      "@models/*": ["src/interfaces/*"],
       "@components/*": ["./src/components/*"],
     }
   },
