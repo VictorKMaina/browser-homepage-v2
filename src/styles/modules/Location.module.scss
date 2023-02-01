@@ -1,0 +1,8 @@
+@use "../utility/mq" as *;
+
+.location-wrapper {
+  display: none;
+  @include min-width(600px) {
+    display: block;
+  }
+}

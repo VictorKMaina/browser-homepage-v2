@@ -1,13 +1,11 @@
-import Main from "./Main/Main";
-import Aside from "./Aside/Aside";
-import Background from "./Background/Background";
+import AppWrapper from "./layout/AppWrapper";
+import BgWrapper from "./layout/BgWrapper";
 
 export default function App() {
   return (
     <>
-      <Main />
-      <Aside />
-      <Background />
+      <AppWrapper />
+      <BgWrapper />
     </>
   );
 }

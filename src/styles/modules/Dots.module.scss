@@ -1,0 +1,31 @@
+@use "../utility/mq" as *;
+
+.dots-nav {
+  display: flex;
+  gap: 10px;
+  justify-self: center;
+  padding: 0.25rem;
+
+  @include min-width(600px) {
+    grid-column: 1 / span 2;
+  }
+
+  @include min-width(laptop){
+    position: absolute;
+  }
+}
+
+@mixin dot($color) {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $color;
+  transition: 200ms;
+}
+
+.dot-inactive {
+  @include dot(var(--white-3));
+}
+.dot-active {
+  @include dot(var(--white-1));
+}
