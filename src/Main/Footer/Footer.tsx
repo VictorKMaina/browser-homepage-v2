@@ -3,10 +3,12 @@ import DotsNav from "./DotsNav";
 import styles from "./footer.module.scss";
 import Description from "./Description";
 
-export default function Footer() {
+type FooterProps = { onAsideToggle: () => void }
+
+export default function Footer({ onAsideToggle }: FooterProps) {
   return (
     <footer className={styles["footer"]}>
-      <Button icon="material-symbols:add">Add images</Button>
+      <Button onClick={onAsideToggle} icon="material-symbols:add">Add images</Button>
       <Description />
       <DotsNav />
     </footer>
