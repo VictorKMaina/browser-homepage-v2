@@ -1,11 +1,11 @@
-import Aside from "@/layout/Aside";
 import Arrows from "@/components/Arrows";
-import Center from "@/layout/MidSection";
+import Aside from "@/layout/Aside";
 import Footer from "@/layout/Footer";
 import Header from "@/layout/Header";
-import { useState } from "react";
-import classNames from "@/services/classNames";
+import Midsection from "@/layout/MidSection";
+import classNames from "@/services/helpers/classNames";
 import styles from "@styles/modules/AppWrapper.module.scss";
+import { useState } from "react";
 
 export default function AppWrapper() {
   const [asideShown, setAsideShown] = useState(false);
@@ -22,7 +22,7 @@ export default function AppWrapper() {
       )}
     >
       <Header />
-      <Center />
+      <Midsection />
       <Footer onAsideToggle={handleAsideToggle} />
 
       <Aside onAsideToggle={handleAsideToggle} />
