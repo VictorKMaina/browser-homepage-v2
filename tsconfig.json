@@ -19,7 +19,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@styles/*": ["./src/shared/styles/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@services/*": ["./src/services/*"],
+      "@models/*": ["./src/models/*"],
+      "@components/*": ["./src/components/*"],
     }
   },
   "include": ["src"],

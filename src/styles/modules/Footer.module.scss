@@ -1,0 +1,19 @@
+@use "../utility/mq" as *;
+
+.footer {
+  width: 100%;
+  position: relative;
+  display: grid;
+  align-items: flex-end;
+  row-gap: 1.5rem;
+  
+  @include min-width(600px){
+    grid-template-columns: auto 1fr;
+    justify-items: flex-end;
+    column-gap: 2rem;
+  }
+
+  // @include min-width(laptop) {
+  //   min-width: $laptop;
+  // }
+}

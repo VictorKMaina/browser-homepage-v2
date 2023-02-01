@@ -1,0 +1,19 @@
+@use "../utility/mq" as *;
+
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-content: flex-start;
+
+  @include min-width(600px) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+iconify-icon {
+  color: var(--primary);
+}
