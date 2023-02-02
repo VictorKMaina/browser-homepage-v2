@@ -3,11 +3,25 @@ import { Icon } from "@iconify-icon/react";
 import { FormEvent } from "react";
 import Button from "./Button";
 import Input from "@/components/Input";
+import { useState } from "react";
 
 function SearchBar() {
-  function handleSearchOnChange() {}
+  const [query, setQuery] = useState("");
+
+  function handleSearchOnChange(e: React.ChangeEvent) {
+    const value = (e.target as HTMLInputElement).value;
+    setQuery(() => value);
+  }
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+
+    const googleUrl = "https://www.google.com/search?q=";
+    const searchUrl = `${googleUrl}${query}`;
+
+    setQuery("");
+
+    window.open(searchUrl, "_self");
   }
   return (
     <form
@@ -16,12 +30,12 @@ function SearchBar() {
       className={styles["search-bar-wrapper"]}
     >
       <Input
-        onChange={handleSearchOnChange}
+        onChange={(e) => handleSearchOnChange(e)}
         id="search"
         name="search"
         icon="material-symbols:search"
         placeholder="Search the web..."
-        value=""
+        value={query}
         button={
           <Button
             style={{ order: 2 }}

@@ -28,14 +28,24 @@ export default function Input({
   button,
   textearea = false,
 }: InputProps) {
-  const inputProps = { id, name, placeholder, value };
-
   return (
     <label htmlFor={id} className={styles["input-wrapper"]}>
       {textearea ? (
-        <TextArea onChange={onChange} {...inputProps} />
+        <TextArea
+          id={id}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
       ) : (
-        <TextInput onChange={onChange} {...inputProps} />
+        <TextInput
+          id={id}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
       )}
 
       {children}
