@@ -12,15 +12,15 @@ export default class CurrentTime {
 
   get period(): Period {
     if (this.hours.number >= 5 && this.hours.number < 12) return "morning";
-    if (this.hours.number === 12) return "noon";
+    if (this.hours.number === 12 && this.minutes.number === 0) return "noon";
     if (
       this.hours.number >= 12 &&
       this.minutes.number > 0 &&
-      this.hours.number < 5
+      this.hours.number < 17
     ) {
       return "afternoon";
     }
-    if (this.hours.number >= 5 && this.hours.number < 8) return "evening";
+    if (this.hours.number >= 17 && this.hours.number < 20) return "evening";
     else return "night";
   }
 

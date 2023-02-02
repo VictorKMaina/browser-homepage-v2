@@ -1,6 +1,6 @@
 import { Weekday, WeekdayFull, Month, MonthFull } from "@/models/DateTime/datetime.type";
 
-export default class BaseCurrentDate {
+export default abstract class CurrentDateAbstract {
   protected weekdays: readonly Weekday[] = [
     "Sun",
     "Mon",

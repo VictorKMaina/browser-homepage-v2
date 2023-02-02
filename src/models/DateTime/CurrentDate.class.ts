@@ -1,8 +1,8 @@
-import BaseCurrentDate from "./BaseCurrentDate.class";
+import CurrentDateAbstract from "./CurrentDateAbstract.class";
 import { DateLengthProperties, DateTimeValues } from "./datetime.type";
 import { padDateTime } from "@/helpers/helpers";
 
-export default class CurrentDate extends BaseCurrentDate {
+export default class CurrentDate extends CurrentDateAbstract {
   get date(): DateTimeValues {
     const dateNum = new Date().getDate();
     return {
