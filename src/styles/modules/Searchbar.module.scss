@@ -1,3 +1,14 @@
+@keyframes scaleIn {
+  from {
+    transform: scale(150%);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}
+
 .search-bar-wrapper {
   width: 100%;
 
@@ -10,7 +21,11 @@
   }
 
   input:focus ~ .google-icon {
+    animation: scaleIn 500ms /*  delay iteration-count direction fill-mode */;
+    animation-fill-mode: forwards;
+
     iconify-icon {
+      transition: 500ms;
       color: var(--primary);
     }
   }
