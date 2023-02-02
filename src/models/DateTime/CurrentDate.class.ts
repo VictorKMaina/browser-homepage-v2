@@ -1,6 +1,6 @@
 import BaseCurrentDate from "./BaseCurrentDate.class";
 import { DateLengthProperties, DateTimeValues } from "./datetime.type";
-import { padDateTime } from "@/helpers/datetime";
+import { padDateTime } from "@/helpers/helpers";
 
 export default class CurrentDate extends BaseCurrentDate {
   get date(): DateTimeValues {

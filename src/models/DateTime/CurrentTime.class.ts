@@ -1,5 +1,5 @@
 import { DateTimeValues, Period } from "@/models/DateTime/datetime.type";
-import { padDateTime } from "@/helpers/datetime";
+import { padDateTime } from "@/helpers/helpers";
 
 export default class CurrentTime {
   private periods: readonly Period[] = [
