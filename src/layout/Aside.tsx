@@ -4,17 +4,14 @@ import styles from "@styles/modules/Aside.module.scss";
 import Button from "@components/Button";
 
 interface AsideProps {
-  onAsideToggle: () => void;
+  onToggleAside: () => void;
 }
 
-export default function Aside({ onAsideToggle }: AsideProps) {
+export default function Aside({ onToggleAside }: AsideProps) {
   return (
     <aside className={styles["aside"]}>
-      <Button onClick={onAsideToggle} icon="material-symbols:close">
-        Close
-      </Button>
-      <ImageForm />
       <SavedImages />
+      {/* <ImageForm /> */}
     </aside>
   );
 }

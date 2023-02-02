@@ -17,9 +17,14 @@ function ThumbnailImage({ image }: ThumbnailImageProps) {
 
   return (
     <div className={styles["thumbnail-image"]}>
-      <div className={styles["thumbnail-button"]}>
-        <Button icon="material-symbols:delete"></Button>
-      </div>
+      {/* <div className={styles["thumbnail-button"]}> */}
+      <Button
+        classes={[styles["thumbnail-button"]]}
+        icon="material-symbols:delete"
+      >
+        Delete
+      </Button>
+      {/* </div> */}
       <img src={image.url || defaultUrl} alt="" />
     </div>
   );
