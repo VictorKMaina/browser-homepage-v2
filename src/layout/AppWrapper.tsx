@@ -5,15 +5,10 @@ import Header from "@/layout/Header";
 import Midsection from "@/layout/MidSection";
 import { classNames } from "@/helpers/helpers";
 import styles from "@styles/modules/AppWrapper.module.scss";
-import { useContext } from "react";
-import { AsideContext } from "@/contexts/Aside.context";
+import { useAside } from "@/contexts/Aside.context";
 
 export default function AppWrapper() {
-  const [asideOpen, setAsideOpen] = useContext(AsideContext);
-
-  function handleAsideToggle() {
-    setAsideOpen((prevAsideOpen) => !prevAsideOpen);
-  }
+  const [asideOpen, toggleAside] = useAside();
 
   return (
     <div
@@ -24,9 +19,9 @@ export default function AppWrapper() {
     >
       <Header />
       <Midsection />
-      <Footer onToggleAside={handleAsideToggle} />
+      <Footer />
 
-      <Aside onToggleAside={handleAsideToggle} />
+      <Aside />
       <Arrows />
     </div>
   );

@@ -17,7 +17,7 @@ export default function BgWrapper() {
       ></div>
 
       <img
-        src="https://images.unsplash.com/photo-1673950455470-d872dcec6eb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
+        src="https://images.unsplash.com/photo-1673940308551-65b7fe1c2226?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
         alt="default bg image"
       />
     </div>

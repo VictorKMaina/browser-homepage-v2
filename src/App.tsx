@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AsideProvider } from "./contexts/Aside.context";
 
 export default function App() {
-  const asideState = useState(false);
+  const asideState = useState(true);
 
   return (
     <AsideProvider value={asideState}>
