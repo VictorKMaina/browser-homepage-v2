@@ -1,8 +1,16 @@
-import { createContext, PropsWithChildren, Dispatch, useContext } from "react";
+import { createContext, PropsWithChildren, Dispatch, useContext, useState } from "react";
 
 export const AsideContext = createContext(
   [] as unknown as [boolean, Dispatch<React.SetStateAction<boolean>>]
 );
+
+export function AsideProvider({ children }: PropsWithChildren) {
+  const asideState = useState(true)
+
+  return (
+    <AsideContext.Provider value={asideState}>{children}</AsideContext.Provider>
+  );
+}
 
 export function useAside(): [boolean, () => void] {
   const [asideOpen, setAsideOpen] = useContext(AsideContext);
@@ -14,12 +22,3 @@ export function useAside(): [boolean, () => void] {
   return [asideOpen, toggleAside];
 }
 
-type AsideProviderProps = {
-  value: [boolean, Dispatch<React.SetStateAction<boolean>>];
-} & PropsWithChildren;
-
-export function AsideProvider({ value, children }: AsideProviderProps) {
-  return (
-    <AsideContext.Provider value={value}>{children}</AsideContext.Provider>
-  );
-}

@@ -1,10 +1,10 @@
 import styles from "@styles/modules/BgWrapper.module.scss";
 import { classNames } from "@/helpers/classnames.helper";
 import { useContext } from "react";
-import { AsideContext } from "@/contexts/Aside.context";
+import { useAside } from "@/contexts/Aside.context";
 
 export default function BgWrapper() {
-  const [asideOpen, _] = useContext(AsideContext);
+  const [asideOpen, _] = useAside();
 
   return (
     <div className={styles["bg-wrapper"]}>

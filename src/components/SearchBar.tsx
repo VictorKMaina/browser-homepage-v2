@@ -1,12 +1,12 @@
 import styles from "@styles/modules/Searchbar.module.scss";
 import { Icon } from "@iconify-icon/react";
-import { FormEvent } from "react";
+import { FormEvent, useRef } from "react";
 import Button from "./Button";
 import Input from "@/components/Input";
 import { useState } from "react";
 
 function SearchBar() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("")
 
   function handleSearchOnChange(e: React.ChangeEvent) {
     const value = (e.target as HTMLInputElement).value;
@@ -23,6 +23,7 @@ function SearchBar() {
 
     window.open(searchUrl, "_self");
   }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -30,7 +31,7 @@ function SearchBar() {
       className={styles["search-bar-wrapper"]}
     >
       <Input
-        onChange={(e) => handleSearchOnChange(e)}
+        onChange={handleSearchOnChange}
         id="search"
         name="search"
         icon="material-symbols:search"

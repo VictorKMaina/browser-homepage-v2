@@ -11,8 +11,7 @@
   border-radius: 1.25rem;
   cursor: pointer;
 
-  input,
-  textarea {
+  input {
     order: 1;
     background: none;
     border: none;
@@ -26,23 +25,12 @@
     width: 100%;
   }
 
-  textarea {
-    min-height: 7rem;
-    resize: none;
-  }
-
   iconify-icon {
     order: 2;
     color: var(--white-1);
     // font-size: 1.5rem;
     transition: 200ms;
     color: var(--white-2);
-  }
-  textarea ~ iconify-icon {
-    position: absolute;
-    top: 0.63rem;
-    right: 1rem;
-    margin-top: 2px;
   }
 
   input:focus ~ iconify-icon,
