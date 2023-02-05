@@ -19,6 +19,7 @@
   cursor: pointer;
   transition: 200ms;
   width: max-content;
+  padding: 0;
 
   &:hover {
     color: var(--primary);
