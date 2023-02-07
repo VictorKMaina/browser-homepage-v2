@@ -1,13 +1,13 @@
-export class Image {
-  constructor(imageUrl: string, description: string, id?: string) {
+import ImageInterface from "./Image.interface";
+
+export class Image implements ImageInterface {
+  constructor(imageUrl: string, description: string, id = "") {
     this.imageUrl = imageUrl;
     this.description = description;
     this.id = id;
   }
 
-  id: string | undefined;
+  id: string;
   imageUrl: string;
   description: string;
 }
-
-export interface ImageInterface extends Image {}

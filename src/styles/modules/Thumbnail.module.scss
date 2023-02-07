@@ -1,0 +1,45 @@
+@use "../utility/colors" as *;
+
+.thumbnail {
+  padding: 1rem;
+  background-color: rgba(black, 0.75);
+  height: 13rem;
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(3.5px);
+  backdrop-filter: blur(3.5px);
+  cursor: pointer;
+  transition: 200ms;
+  box-shadow: 0 0 0 1px transparent;
+
+  &.checked {
+    box-shadow: 0 0 0 1px rgba(get-color("primary"), .75), 0 0 10px rgba(get-color("primary"), .15);
+  }
+}
+
+.checkbox {
+  border-radius: 50%;
+  border: 1.5px solid var(--primary);
+  height: 1.25rem;
+  width: 1.25rem;
+  padding: 2px;
+
+  &.checked::after {
+    @keyframes scale {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(100%);
+      }
+    }
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: var(--primary);
+    animation-name: scale;
+    animation-duration: 150ms;
+    animation-fill-mode: backwards;
+  }
+}

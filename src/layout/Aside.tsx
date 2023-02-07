@@ -1,10 +1,13 @@
 import styles from "@styles/modules/Aside.module.scss";
 import Button from "@components/Button";
 import { useAside } from "@/contexts/Aside.context";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { asidePageReducer } from "@/utility/asidePageReducer";
+import { Thumbnail, ThumbnailInterface } from "@/components/Thumbnail";
+import { Image } from "@/models/BgImage/Image.class";
+import SavedImages from "./SavedImages"
 
-export default function Aside() {
+const Aside = () => {
   const [_, toggleAside] = useAside();
   const [page, dispatchPage] = useReducer(asidePageReducer, "saved_images");
 
@@ -23,24 +26,6 @@ export default function Aside() {
       {page === "saved_images" && <SavedImages />}
     </aside>
   );
-}
+};
 
-function SavedImages() {
-  return (
-    <section className={styles["saved-images"]}>
-      <header>
-        <h2>Saved images</h2>
-        <p>1 of 2 selected</p>
-      </header>
-      <div className={styles.actions}>
-        <Button
-          icon="material-symbols:delete-rounded"
-          classes={[styles["delete-button"]]}
-        >
-          Delete image
-        </Button>
-        <Button>Cancel</Button>
-      </div>
-    </section>
-  );
-}
+export default Aside;
