@@ -1,11 +1,10 @@
 import styles from "@styles/modules/Aside.module.scss";
 import Button from "@components/Button";
 import { useAside } from "@/contexts/Aside.context";
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { asidePageReducer } from "@/utility/asidePageReducer";
-import { Thumbnail, ThumbnailInterface } from "@/components/Thumbnail";
-import { Image } from "@/models/BgImage/Image.class";
-import SavedImages from "./SavedImages"
+import SavedImages from "./SavedImages";
+import { ImagesProvider } from "@/contexts/Images.context";
 
 const Aside = () => {
   const [_, toggleAside] = useAside();
@@ -23,7 +22,9 @@ const Aside = () => {
         </Button>
       </nav>
 
-      {page === "saved_images" && <SavedImages />}
+      <ImagesProvider>
+        {page === "saved_images" && <SavedImages />}
+      </ImagesProvider>
     </aside>
   );
 };

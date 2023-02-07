@@ -5,9 +5,11 @@ export class Image implements ImageInterface {
     this.imageUrl = imageUrl;
     this.description = description;
     this.id = id;
+    this.selected = false;
   }
 
   id: string;
   imageUrl: string;
   description: string;
+  selected: boolean;
 }
