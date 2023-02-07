@@ -7,7 +7,7 @@ export default function App() {
   const asideState = useState(true);
 
   return (
-    <AsideProvider value={asideState}>
+    <AsideProvider>
       <AppWrapper />
       <BgWrapper />
     </AsideProvider>

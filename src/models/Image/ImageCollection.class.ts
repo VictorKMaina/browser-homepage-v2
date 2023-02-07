@@ -5,11 +5,12 @@ import {
   NoLocalStorageImageCollection,
 } from "./ImageErrors.class";
 
-import { Image, ImageInterface } from "./Image.class";
+import { Image } from "./Image.class";
+import ImageInterface from "./Image.interface";
 
 export class ImageCollection {
   constructor(collectionName: string) {
-    this.name = collectionName
+    this.name = collectionName;
     this.images = [];
 
     // Check local storage for images and initialize collection with them
