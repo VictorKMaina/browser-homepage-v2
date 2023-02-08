@@ -1,10 +1,10 @@
 import styles from "@styles/modules/Thumbnail.module.scss";
 import { classNames } from "@/helpers/classnames.helper";
-import ImageInterface from "@/models/Image/Image.interface";
+import { Image } from "@/models/Image/Image.interface";
 import { memo } from "react";
 import Checkbox from "./Checkbox";
 
-export interface ThumbnailInterface extends ImageInterface {
+export interface ThumbnailInterface extends Image {
   selected: boolean;
   selectThumbnail: (thumbnailID: string) => void;
 }

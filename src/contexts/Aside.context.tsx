@@ -5,7 +5,7 @@ export const AsideContext = createContext(
 );
 
 export function AsideProvider({ children }: PropsWithChildren) {
-  const asideState = useState(false)
+  const asideState = useState(true)
 
   return (
     <AsideContext.Provider value={asideState}>{children}</AsideContext.Provider>

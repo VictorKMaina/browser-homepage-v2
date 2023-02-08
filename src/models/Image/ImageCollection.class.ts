@@ -9,7 +9,7 @@ import { Image } from "./Image.class";
 import ImageInterface from "./Image.interface";
 
 export class ImageCollection {
-  constructor(collectionName: string) {
+  constructor(collectionName = "images") {
     this.name = collectionName;
     this.images = [];
 
