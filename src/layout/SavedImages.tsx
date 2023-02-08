@@ -8,12 +8,12 @@ import selectedImagesReducer from "@/utility/selectedImagesReducer";
 import { pluralize } from "@/helpers/pluralize.helper";
 
 export default function SavedImages() {
-  const [images] = useImages();
+  const [images, setImages] = useImages();
 
   const [selectedImages, handleSelectedImages] = useReducer(
     selectedImagesReducer,
     images,
-    createSelectedImages
+    convertToSelectedImages
   );
 
   const amountSelected = useCallback(() => {
@@ -30,6 +30,15 @@ export default function SavedImages() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     handleSelectedImages({ type: "delete" });
+    setImages(
+      selectedImages
+        .filter((image) => !image.selected)
+        .map((image) => ({
+          id: image.id,
+          description: image.description,
+          imageUrl: image.imageUrl,
+        }))
+    );
   }
 
   function handleReset() {
@@ -66,7 +75,7 @@ export default function SavedImages() {
   );
 }
 
-function createSelectedImages(images: Image[]) {
+function convertToSelectedImages(images: Image[]) {
   return images.map((image): SelectedImage => ({ ...image, selected: false }));
 }
 
