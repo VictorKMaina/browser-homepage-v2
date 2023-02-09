@@ -1,5 +1,4 @@
 import { Image } from "@/models/Image/Image.interface";
-// import data from "../data";
 import {
   createContext,
   Dispatch,
@@ -15,26 +14,15 @@ export const ImagesContext = createContext(
   [] as unknown as [Image[], Dispatch<React.SetStateAction<Image[]>>]
 );
 
-export function useImages() {
+export function useImagesStore() {
   const [images, setImages] = useContext(ImagesContext);
+
   return {
     images: images,
     createImage: (url: string, description: string) => {
-      const image: Image = {
-        id: generateID(images),
-        imageUrl: url,
-        description,
-      };
-      try {
-        validateImageUrl(images, url);
-        setImages((prev) => [...prev, image]);
-      } catch (err) {
-        throw err;
-      }
+      createImage(images, url, description, setImages);
     },
-    deleteImages: (imageIDs: string[]) => {
-      setImages((prev) => prev.filter((image) => !imageIDs.includes(image.id)));
-    },
+    deleteImages: (imageIDs: string[]) => deleteImages(imageIDs, setImages),
   };
 }
 
@@ -54,4 +42,30 @@ export function ImagesProvider({ children }: PropsWithChildren) {
       {children}
     </ImagesContext.Provider>
   );
+}
+
+function createImage(
+  images: Image[],
+  url: string,
+  description: string,
+  set: Dispatch<React.SetStateAction<Image[]>>
+) {
+  const image: Image = {
+    id: generateID(images),
+    imageUrl: url,
+    description,
+  };
+  try {
+    validateImageUrl(images, url);
+    set((prev) => [...prev, image]);
+  } catch (err) {
+    throw err;
+  }
+}
+
+function deleteImages(
+  imageIDs: string[],
+  set: Dispatch<React.SetStateAction<Image[]>>
+) {
+  set((prev) => prev.filter((image) => !imageIDs.includes(image.id)));
 }

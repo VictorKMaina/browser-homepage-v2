@@ -3,13 +3,13 @@ import styles from "@styles/modules/AddImageForm.module.scss";
 import Input from "@components/Input";
 import { useState } from "react";
 import Button from "@/components/Button";
-import { useImages } from "@/contexts/Images.context";
+import { useImagesStore } from "@/contexts/Images.context";
 import { ImageError } from "@/models/Image/ImageErrors.class";
 
 type AddImageFormProps = {};
 
 export default function AddImageForm({}: AddImageFormProps) {
-  const { createImage } = useImages();
+  const { createImage } = useImagesStore();
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
   const [urlErrors, setUrlErrors] = useState<ImageError>();

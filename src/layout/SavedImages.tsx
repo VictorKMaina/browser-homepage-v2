@@ -1,14 +1,14 @@
 import styles from "@styles/modules/SavedImages.module.scss";
 import Button from "@/components/Button";
 import { Thumbnail } from "@/components/Thumbnail";
-import { useImages } from "@/contexts/Images.context";
+import { useImagesStore } from "@/contexts/Images.context";
 import { useReducer, useCallback, useEffect } from "react";
 import { Image, SelectedImage } from "@/models/Image/Image.interface";
 import selectedImagesReducer from "@/utility/selectedImagesReducer";
 import { pluralize } from "@/helpers/pluralize.helper";
 
 export default function SavedImages() {
-  const { images, deleteImages } = useImages();
+  const { images, deleteImages } = useImagesStore();
 
   const [selectedImages, handleSelectedImages] = useReducer(
     selectedImagesReducer,

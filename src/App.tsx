@@ -3,15 +3,18 @@ import BgWrapper from "./layout/BgWrapper";
 import { useState } from "react";
 import { AsideProvider } from "./contexts/Aside.context";
 import { ImagesProvider } from "./contexts/Images.context";
+import {
+  BackgroundProvider,
+} from "./contexts/Background.context";
 
 export default function App() {
-  const asideState = useState(true);
-
   return (
     <AsideProvider>
       <ImagesProvider>
-        <AppWrapper />
-        <BgWrapper />
+        <BackgroundProvider>
+          <AppWrapper />
+          <BgWrapper />
+        </BackgroundProvider>
       </ImagesProvider>
     </AsideProvider>
   );
