@@ -1,5 +1,5 @@
 import { Image } from "@/models/Image/Image.interface";
-import data from "../data";
+// import data from "../data";
 import {
   createContext,
   Dispatch,
@@ -8,14 +8,34 @@ import {
   useState,
 } from "react";
 import { useEffect } from "react";
+import generateID from "@/utility/generateImageID";
+import validateImageUrl from "@/utility/validateImageUrl";
 
 export const ImagesContext = createContext(
   [] as unknown as [Image[], Dispatch<React.SetStateAction<Image[]>>]
 );
 
 export function useImages() {
-  const imageState = useContext(ImagesContext);
-  return imageState;
+  const [images, setImages] = useContext(ImagesContext);
+  return {
+    images,
+    createImage: (url: string, description: string) => {
+      const image: Image = {
+        id: generateID(images),
+        imageUrl: url,
+        description,
+      };
+      try {
+        validateImageUrl(images, url);
+        setImages((prev) => [...prev, image]);
+      } catch (err) {
+        throw err;
+      }
+    },
+    deleteImages: (imageIDs: string[]) => {
+      setImages((prev) => prev.filter((image) => !imageIDs.includes(image.id)));
+    },
+  };
 }
 
 export function ImagesProvider({ children }: PropsWithChildren) {

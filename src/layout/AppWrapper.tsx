@@ -21,7 +21,7 @@ export default function AppWrapper() {
       <Midsection />
       <Footer />
 
-      <Aside />
+      {asideOpen && <Aside />}
       <Arrows />
     </div>
   );

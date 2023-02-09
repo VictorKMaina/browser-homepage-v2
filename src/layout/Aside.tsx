@@ -5,15 +5,31 @@ import { useReducer } from "react";
 import { asidePageReducer } from "@/utility/asidePageReducer";
 import SavedImages from "./SavedImages";
 import { ImagesProvider } from "@/contexts/Images.context";
+import AddImageForm from "./AddImageForm";
 
 const Aside = () => {
-  const [_, toggleAside] = useAside();
-  const [page, dispatchPage] = useReducer(asidePageReducer, "saved_images");
+  const [, toggleAside] = useAside();
+  const [page, handleChangePage] = useReducer(asidePageReducer, "saved_images");
 
   return (
     <aside className={styles["aside"]}>
       <nav>
-        <Button icon="material-symbols:add-box-rounded">Add image</Button>
+        {page !== "image_form" ? (
+          <Button
+            onClick={() => handleChangePage({ type: "image_form" })}
+            icon="material-symbols:add-box-rounded"
+          >
+            Add image
+          </Button>
+        ) : (
+          <Button
+            onClick={() => handleChangePage({ type: "saved_images" })}
+            icon="material-symbols:chevron-left-rounded"
+          >
+            Saved images
+          </Button>
+        )}
+
         <Button
           onClick={() => toggleAside()}
           icon="material-symbols:left-panel-close-rounded"
@@ -24,6 +40,7 @@ const Aside = () => {
 
       <ImagesProvider>
         {page === "saved_images" && <SavedImages />}
+        {page === "image_form" && <AddImageForm />}
       </ImagesProvider>
     </aside>
   );

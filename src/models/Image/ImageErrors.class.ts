@@ -1,4 +1,4 @@
-import { Image } from "./Image.class";
+import { Image } from "./Image.interface";
 
 /**
  *

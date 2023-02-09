@@ -4,9 +4,19 @@ import { FormEvent, useRef } from "react";
 import Button from "./Button";
 import Input from "@/components/Input";
 import { useState } from "react";
+import { useAside } from "@/contexts/Aside.context";
 
 function SearchBar() {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
+  const [asideOpen, toggleAside] = useAside();
+
+  const searchbarRef = useRef(null);
+
+  function focusSearchbarRef() {
+    (searchbarRef.current) &&
+      (searchbarRef.current as HTMLInputElement).focus({ preventScroll: true });
+    asideOpen && toggleAside();
+  }
 
   function handleSearchOnChange(e: React.ChangeEvent) {
     const value = (e.target as HTMLInputElement).value;
@@ -29,11 +39,13 @@ function SearchBar() {
       onSubmit={handleSubmit}
       autoComplete="off"
       className={styles["search-bar-wrapper"]}
+      onClick={focusSearchbarRef}
     >
       <Input
+        ref={searchbarRef}
         onChange={handleSearchOnChange}
-        id="search"
-        name="search"
+        htmlID="search"
+        htmlName="search"
         icon="material-symbols:search"
         placeholder="Search the web..."
         value={query}

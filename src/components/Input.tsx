@@ -2,11 +2,11 @@ import { IconifyIcon } from "@iconify-icon/react";
 import React, { PropsWithChildren, useRef } from "react";
 import styles from "@styles/modules/Input.module.scss";
 import { Icon } from "@iconify-icon/react";
-import { useAside } from "@/contexts/Aside.context";
+import { forwardRef, useImperativeHandle } from "react";
 
 interface InputProps extends PropsWithChildren {
-  id: string;
-  name: string;
+  htmlID: string;
+  htmlName: string;
   placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent) => void;
@@ -14,31 +14,42 @@ interface InputProps extends PropsWithChildren {
   button?: React.ReactNode;
 }
 
-export default function Input({
-  children,
-  id,
-  name,
-  placeholder,
-  value,
-  onChange,
-  icon,
-  button,
-}: InputProps) {
+export default forwardRef(function Input(
+  {
+    children,
+    htmlID,
+    htmlName,
+    placeholder,
+    value,
+    onChange,
+    icon,
+    button,
+  }: InputProps,
+  ref
+) {
   const inputRef = useRef(null);
-  const [asideOpen, toggleAside] = useAside();
+
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        focus: focusInputRef,
+      };
+    },
+    []
+  );
 
   function focusInputRef() {
     inputRef.current &&
       (inputRef.current as HTMLInputElement).focus({ preventScroll: true });
-    asideOpen && toggleAside()
   }
 
   return (
     <div onClick={focusInputRef} className={styles["input-wrapper"]}>
       <input
-        title={`${name} input`}
-        id={id}
-        name={name}
+        title={`${htmlName} input`}
+        id={htmlID}
+        name={htmlName}
         type="text"
         placeholder={placeholder}
         value={value}
@@ -51,4 +62,4 @@ export default function Input({
       {button || <Icon icon={icon} />}
     </div>
   );
-}
+});
