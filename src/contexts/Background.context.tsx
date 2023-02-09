@@ -8,13 +8,19 @@ export const BackgroundContext = createContext([] as unknown as ContextType);
 
 const useImagesAmount = () => {
   const { images } = useImagesStore();
-  const imagesAmount = useMemo(() => images.length, [images]);
-  return imagesAmount;
+  return images.length;
+};
+
+const useCurrentImage = (currentIndex: number) => {
+  const { images } = useImagesStore();
+  return images[currentIndex];
 };
 
 export function BackgroundProvider({ children }: React.PropsWithChildren) {
   const imagesAmount = useImagesAmount();
-  const [currentIndex, setCurrentIndex] = useState(randomNumber(imagesAmount - 1));
+  const [currentIndex, setCurrentIndex] = useState(
+    randomNumber(imagesAmount - 1)
+  );
 
   return (
     <BackgroundContext.Provider value={[currentIndex, setCurrentIndex]}>
@@ -26,7 +32,10 @@ export function BackgroundProvider({ children }: React.PropsWithChildren) {
 export function useBackgroundContext() {
   const [currentIndex, setCurrentIndex] = useContext(BackgroundContext);
   const imagesAmount = useImagesAmount();
+  const currentImage = useCurrentImage(currentIndex);
+
   return {
+    currentImage,
     currentIndex,
     setCurrentIndex,
 

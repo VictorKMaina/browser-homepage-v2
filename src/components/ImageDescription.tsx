@@ -1,7 +1,13 @@
+import { useBackgroundContext } from "@/contexts/Background.context";
 import styles from "@styles/modules/ImageDescription.module.scss";
 
 export default function ImageDescription() {
+  const { currentImage } = useBackgroundContext();
+
   return (
-    <div className={styles['description']}>Voluptate aliquip irure laboris incididunt do cupidatat cupidatat minim culpa nulla enim quis minim sint.</div>
-  )
+    <>
+      {/* <div className={styles["description"]}>{currentImage.description}</div> */}
+      { currentImage?.description && <div className={styles["description"]}>{currentImage.description}</div> }
+    </>
+  );
 }

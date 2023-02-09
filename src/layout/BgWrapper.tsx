@@ -1,14 +1,11 @@
 import styles from "@styles/modules/BgWrapper.module.scss";
 import { classNames } from "@/helpers/classnames.helper";
 import { useAside } from "@/contexts/Aside.context";
-import { useContext } from "react";
-import { BackgroundContext } from "@/contexts/Background.context";
-import { useImagesStore } from "@/contexts/Images.context";
+import { useBackgroundContext } from "@/contexts/Background.context";
 
 export default function BgWrapper() {
   const [asideOpen, _] = useAside();
-  const { images } = useImagesStore();
-  const [currentIndex, setCurrentIndex] = useContext(BackgroundContext);
+  const { currentImage, currentIndex } = useBackgroundContext();
 
   return (
     <div className={styles["bg-wrapper"]}>
@@ -20,13 +17,8 @@ export default function BgWrapper() {
         }
       ></div>
 
-      {/* <h1>{currentIndex}</h1> */}
-
-      {images.length > 0 && (
-        <img
-          src={images[currentIndex].imageUrl}
-          alt={images[currentIndex].description}
-        />
+      {currentImage && (
+        <img src={currentImage.imageUrl} alt={currentImage.description} />
       )}
     </div>
   );
