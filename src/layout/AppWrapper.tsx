@@ -8,7 +8,7 @@ import styles from "@styles/modules/AppWrapper.module.scss";
 import { useAside } from "@/contexts/Aside.context";
 
 export default function AppWrapper() {
-  const [asideOpen, toggleAside] = useAside();
+  const [asideOpen,] = useAside();
 
   return (
     <div

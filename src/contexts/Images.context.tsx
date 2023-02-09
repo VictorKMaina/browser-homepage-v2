@@ -18,7 +18,7 @@ export const ImagesContext = createContext(
 export function useImages() {
   const [images, setImages] = useContext(ImagesContext);
   return {
-    images,
+    images: images,
     createImage: (url: string, description: string) => {
       const image: Image = {
         id: generateID(images),
@@ -39,19 +39,18 @@ export function useImages() {
 }
 
 export function ImagesProvider({ children }: PropsWithChildren) {
-  const imagesState = useState(() => {
+  const [images, setImages] = useState(() => {
     const imagesLocalStorage = localStorage.getItem("images");
     if (imagesLocalStorage) return JSON.parse(imagesLocalStorage) as Image[];
     else return [] as Image[];
   });
 
-  const [images] = imagesState;
   useEffect(() => {
     localStorage.setItem("images", JSON.stringify(images));
   }, [images]);
 
   return (
-    <ImagesContext.Provider value={imagesState}>
+    <ImagesContext.Provider value={[images, setImages]}>
       {children}
     </ImagesContext.Provider>
   );

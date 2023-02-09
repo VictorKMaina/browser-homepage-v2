@@ -38,10 +38,8 @@ const Aside = () => {
         </Button>
       </nav>
 
-      <ImagesProvider>
-        {page === "saved_images" && <SavedImages />}
-        {page === "image_form" && <AddImageForm />}
-      </ImagesProvider>
+      {page === "saved_images" && <SavedImages />}
+      {page === "image_form" && <AddImageForm />}
     </aside>
   );
 };
